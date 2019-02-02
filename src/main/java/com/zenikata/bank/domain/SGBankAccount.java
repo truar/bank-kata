@@ -7,6 +7,10 @@ public class SGBankAccount implements BankAccount {
         balance += amount;
     }
 
+    public void withdraw(Integer amountToWithdraw) {
+        balance -= amountToWithdraw;
+    }
+
     public int balance() {
         return balance;
     }

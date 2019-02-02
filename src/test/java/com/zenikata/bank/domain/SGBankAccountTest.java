@@ -19,4 +19,12 @@ public class SGBankAccountTest {
         bankAccount.deposit(10);
         assertThat(bankAccount.balance()).isEqualTo(10);
     }
+
+    @Test
+    public void shouldWithdrawMoney() {
+        bankAccount.deposit(10);
+        bankAccount.withdraw(5);
+        assertThat(bankAccount.balance()).isEqualTo(5);
+    }
+
 }
