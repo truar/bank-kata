@@ -1,10 +1,15 @@
 package com.zenikata.bank.domain;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 public interface BankAccount {
 
-    int balance();
+    BigDecimal balance();
 
-    void deposit(Money amount);
+    void deposit(Money amountToDepose);
 
     void withdraw(Money amountToWithdraw);
+
+    List<Transaction> transactions();
 }

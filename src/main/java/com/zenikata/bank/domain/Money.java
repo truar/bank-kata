@@ -5,15 +5,15 @@ import java.util.Objects;
 
 public class Money {
 
-    private BigDecimal amount;
+    private final BigDecimal amount;
 
-    private Money(int value) {
-        amount = new BigDecimal(value);
+    public Money(BigDecimal amount) {
+        this.amount = amount;
     }
 
     public static Money fromInteger(Integer value) {
         requireStrictlyPositive(value);
-        return new Money(value);
+        return new Money(new BigDecimal(value));
     }
 
     private static void requireStrictlyPositive(Integer value) {
@@ -22,7 +22,20 @@ public class Money {
         }
     }
 
-    public int amount() {
-        return amount.intValue();
+    public BigDecimal amount() {
+        return amount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Money money = (Money) o;
+        return amount.compareTo(money.amount) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(amount);
     }
 }
