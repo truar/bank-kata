@@ -1,6 +1,7 @@
 package features;
 
 import com.zenikata.bank.domain.BankAccount;
+import com.zenikata.bank.domain.Money;
 import com.zenikata.bank.domain.SGBankAccount;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -19,7 +20,7 @@ public class DepositFeature {
 
     @When("^He deposits \"([^\"]*)\" into his bank account$")
     public void depositMoneyIntoAccount(Integer amountToDepose) {
-        bankAcount.deposit(amountToDepose);
+        bankAcount.deposit(Money.fromInteger(amountToDepose));
     }
 
     @Then("^His new balance is \"([^\"]*)\"")

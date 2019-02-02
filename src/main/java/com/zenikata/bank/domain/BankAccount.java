@@ -4,7 +4,7 @@ public interface BankAccount {
 
     int balance();
 
-    void deposit(int amount);
+    void deposit(Money amount);
 
-    void withdraw(Integer amountToWithdraw);
+    void withdraw(Money amountToWithdraw);
 }

@@ -16,15 +16,15 @@ public class SGBankAccountTest {
 
     @Test
     public void shouldDepositMoney() {
-        bankAccount.deposit(10);
-        assertThat(bankAccount.balance()).isEqualTo(10);
+        bankAccount.deposit(Money.fromInteger(10));
+        assertThat(bankAccount.balance()).isEqualTo(Money.fromInteger(10).amount());
     }
 
     @Test
     public void shouldWithdrawMoney() {
-        bankAccount.deposit(10);
-        bankAccount.withdraw(5);
-        assertThat(bankAccount.balance()).isEqualTo(5);
+        bankAccount.deposit(Money.fromInteger(10));
+        bankAccount.withdraw(Money.fromInteger(5));
+        assertThat(bankAccount.balance()).isEqualTo(Money.fromInteger(5).amount());
     }
 
 }

@@ -1,6 +1,7 @@
 package features;
 
 import com.zenikata.bank.domain.BankAccount;
+import com.zenikata.bank.domain.Money;
 import com.zenikata.bank.domain.SGBankAccount;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -15,12 +16,12 @@ public class WithdrawFeature {
     @Given("^A client with \"([^\"]*)\" into his bank account$")
     public void initAccount(Integer initialAmount) {
         bankAcount = new SGBankAccount();
-        bankAcount.deposit(initialAmount);
+        bankAcount.deposit(Money.fromInteger(initialAmount));
     }
 
     @When("^He withdraws \"([^\"]*)\" from his bank account$")
     public void WithdrawMoneyFromAccount(Integer amountToWithdraw) {
-        bankAcount.withdraw(amountToWithdraw);
+        bankAcount.withdraw(Money.fromInteger(amountToWithdraw));
     }
 
     @Then("^His new balance after the withdraw is \"([^\"]*)\"")
